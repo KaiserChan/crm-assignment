@@ -62,7 +62,6 @@ class Contact
   # by specifying both the name of the attribute and the value
   # eg. searching for 'first_name', 'Betty' should return the first contact named Betty
   def self.find_by(attribute, value)
-
     @@contacts.each do |find|
       if attribute == "first_name" && value == find.first_name
         return find
@@ -71,7 +70,7 @@ class Contact
       elsif attribute == "email" && value == find.email
         return find
       else
-        puts "Invalid Input"
+        puts "Invalid Input. Contact does not exist"
       end
     end
   end
@@ -126,18 +125,18 @@ class Contact
   # This method should delete the contact
   # HINT: Check the Array class docs for built-in methods that might be useful here
 
-  def self.delete(id)
-    @@contacts.select do |find|
-      if id == find.id
-        @@contacts.delete(find)
-        return @@contacts
-      end
-    end
-  end
-
-  # def delete
-  #
+  # def self.delete(id)
+  #   @@contacts.select do |find|
+  #     if id == find.id
+  #       @@contacts.delete(find)
+  #       return @@contacts
+  #     end
+  #   end
   # end
+
+  def delete
+    @@contacts.delete(self)
+  end
 
   # Feel free to add other methods here, if you need them.
 
@@ -158,5 +157,8 @@ connor = Contact.create("Connor", "Chan", "connor@chan.com", "Maybe the baby bro
 # puts Contact.find_by("Kaiser Chan").inspect
 # puts Contact.delete(1000).inspect
 
-puts kaiser.update("notes", "always hangry").inspect
-puts Contact.find_by("first_name", "Kaiser").inspect
+# puts kaiser.update("notes", "always hangry").inspect
+# puts Contact.find_by("first_name", "Kaiser").inspect
+
+# kaiser.delete
+# puts Contact.all.inspect
