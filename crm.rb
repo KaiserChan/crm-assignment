@@ -1,11 +1,11 @@
-require "pry"
+require 'pry'
 
-require_relative "contact"
+require_relative 'contact'
 
 class CRM
 
-  def initialize
-
+  def initialize(name)
+    puts "OK! This CRM has the name " + name
   end
 
 
@@ -55,7 +55,7 @@ class CRM
     print "Enter any notes about the contact: "
       notes = gets.chomp
 
-    Contact.create(first_name, last_name, email, notes)
+    puts Contact.create(first_name, last_name, email, notes).inspect
   end
 
 
@@ -86,7 +86,7 @@ class CRM
     puts "Please enter the new information below."
     value_input = gets.chomp
 
-    target_contact.update(attribute_input, value_input)
+    puts target_contact.update(attribute_input, value_input).inspect # update is an instance method from class Contact
   end
 
 
@@ -104,14 +104,14 @@ class CRM
 
     if delete_input == 1
       puts "You deleted #{target_contact}."
-      target_contact.delete
+      puts target_contact.delete.inspect
     elsif delete_input == 2
       puts "You aborted the deletion of #{target_contact}."
     end
   end
 
   def display_all_contacts
-    Contact.all
+    puts Contact.all.inspect
   end
 
   def search_by_attribute
@@ -137,16 +137,12 @@ class CRM
     puts "Please enter the search information below."
     value_input = gets.chomp
 
-    Contact.find_by(attribute_input, value_input)
-  end
-
-  def exit
-
+    puts Contact.find_by(attribute_input, value_input).inspect
   end
 
 end
 
 
-crm_app = CRM.new
+crm_app = CRM.new("Hangry Daddy")
 
 crm_app.main_menu
