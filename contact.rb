@@ -30,6 +30,14 @@ class Contact
     @@contacts
   end
 
+  # def self.first_name
+  #   @first_name
+  # end
+  #
+  # def self.last_name
+  #   @last_name
+  # end
+
   # This method should accept an id as an argument
   # and return the contact who has that id
 

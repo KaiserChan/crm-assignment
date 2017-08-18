@@ -103,8 +103,9 @@ class CRM
     end
 
     if delete_input == 1
+      puts target_contact.delete
       puts "You deleted #{target_contact}."
-      puts target_contact.delete.inspect
+
     elsif delete_input == 2
       puts "You aborted the deletion of #{target_contact}."
     end
@@ -137,7 +138,7 @@ class CRM
     puts "Please enter the search information below."
     value_input = gets.chomp
 
-    puts Contact.find_by(attribute_input, value_input).inspect
+    return  Contact.find_by(attribute_input, value_input)
   end
 
 end
