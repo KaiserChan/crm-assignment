@@ -83,8 +83,8 @@ class Contact
         return entry
       elsif attribute == "email" && value == entry.email
         return entry
-      else
-        puts "Invalid Input. Contact does not exist"
+      # else
+        # puts "Invalid Input. Contact does not exist"
       end
     end
   end

@@ -136,7 +136,7 @@ class CRM
     end
 
     puts "Please enter the search information below."
-    value = gets.chomp
+    value = gets.chomp.to_s
 
     return  Contact.find_by(attribute, value)
   end
