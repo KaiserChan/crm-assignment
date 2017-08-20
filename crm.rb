@@ -55,7 +55,7 @@ class CRM
     print "Enter any notes about the contact: "
       notes = gets.chomp
 
-    puts Contact.create(first_name, last_name, email, notes).inspect
+    puts Contact.create(first_name, last_name, email, notes)
   end
 
 
@@ -70,23 +70,23 @@ class CRM
     puts "[4] Notes"
     puts "Enter a number: "
 
-    attribute_input = gets.chomp.to_i
-    while attribute_input > 4 || attribute_input < 1
+    attribute = gets.chomp.to_i
+    while attribute > 4 || attribute < 1
       puts "Invalid option. Please select from the menu options and enter option number."
-      attribute_input = gets.chomp.to_i
+      attribute = gets.chomp.to_i
     end
 
-    case attribute_input
-      when 1 then attribute_input = "first_name"
-      when 2 then attribute_input = "last_name"
-      when 3 then attribute_input = "email"
-      when 4 then attribute_input = "notes"
+    case attribute
+      when 1 then attribute = "first_name"
+      when 2 then attribute = "last_name"
+      when 3 then attribute = "email"
+      when 4 then attribute = "notes"
     end
 
     puts "Please enter the new information below."
-    value_input = gets.chomp
+    value = gets.chomp
 
-    puts target_contact.update(attribute_input, value_input).inspect # update is an instance method from class Contact
+    puts target_contact.update(attribute, value).inspect # update is an instance method from class Contact
   end
 
 
@@ -123,22 +123,22 @@ class CRM
     puts "[3] Email"
     puts "Enter a number: "
 
-    attribute_input = gets.chomp.to_i
-    while attribute_input > 3 || attribute_input < 1
+    attribute = gets.chomp.to_i
+    while attribute > 3 || attribute < 1
       puts "Invalid option. Please select from the menu options and enter option number."
-      attribute_input = gets.chomp.to_i
+      attribute = gets.chomp.to_i
     end
 
-    case attribute_input
-      when 1 then attribute_input = "first_name"
-      when 2 then attribute_input = "last_name"
-      when 3 then attribute_input = "email"
+    case attribute
+      when 1 then attribute = "first_name"
+      when 2 then attribute = "last_name"
+      when 3 then attribute = "email"
     end
 
     puts "Please enter the search information below."
-    value_input = gets.chomp
+    value = gets.chomp
 
-    return  Contact.find_by(attribute_input, value_input)
+    return  Contact.find_by(attribute, value)
   end
 
 end

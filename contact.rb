@@ -70,17 +70,19 @@ class Contact
   # by specifying both the name of the attribute and the value
   # eg. searching for 'first_name', 'Betty' should return the first contact named Betty
   def self.find_by(attribute, value)
-    @@contacts.each do |find|
-      # while value != find.first_name || value != find.last_name || value != find.email
+    @@contacts.select do |entry|
+
+      # while value != entry.first_name || value != entry.last_name || value != entry.email
       #   puts "Invalid Input. Contact does not exist. Please re-enter."
       #   value = gets.chomp
       # end
-      if attribute == "first_name" && value == find.first_name
-        return find
-      elsif attribute == "last_name" && value == find.last_name
-        return find
-      elsif attribute == "email" && value == find.email
-        return find
+
+      if attribute == "first_name" && value == entry.first_name
+        return entry
+      elsif attribute == "last_name" && value == entry.last_name
+        return entry
+      elsif attribute == "email" && value == entry.email
+        return entry
       else
         puts "Invalid Input. Contact does not exist"
       end
