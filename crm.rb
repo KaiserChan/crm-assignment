@@ -143,7 +143,11 @@ class CRM
 
 end
 
+at_exit do
+  ActiveRecord::Base.connection.close
+end
 
-crm_app = CRM.new("Hangry Daddy")
 
-crm_app.main_menu
+# crm_app = CRM.new("Hangry Daddy")
+#
+# crm_app.main_menu
