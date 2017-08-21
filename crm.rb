@@ -55,7 +55,12 @@ class CRM
     print "Enter any notes about the contact: "
       notes = gets.chomp
 
-    puts Contact.create(first_name, last_name, email, notes)
+    puts contact = Contact.create(
+                      first_name: first_name,
+                      last_name:  last_name,
+                      email:      email,
+                      note:       note
+                    )
   end
 
 
@@ -146,6 +151,11 @@ end
 at_exit do
   ActiveRecord::Base.connection.close
 end
+
+
+# kaiser = Contact.create(first_name: "Kaiser", last_name: "Chan", email: "kaiser@chan.com", note: "Always so serious")
+# diane = Contact.create(first_name: "Diane", last_name: "Chang", email: "diane@chang.com", note: "The best")
+# celeste = Contact.create(first_name: "Celeste", last_name: "Chan", email: "celeste@chan.com", note: "The cutest baby girl ever")
 
 
 # crm_app = CRM.new("Hangry Daddy")
